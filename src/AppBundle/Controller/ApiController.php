@@ -251,6 +251,22 @@ class ApiController extends Controller
      * @Route("/users/{id}", name="users_delete")
      *
      * @Method("DELETE")
+     *
+     * @SWG\Response(
+     *     response=202,
+     *     description="Delete one user",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @Model(type=User::class)
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="query",
+     *     type="number",
+     *     description="The id of user you want to delete"
+     * )
+     * @SWG\Tag(name="Delete user")
      */
     public function deleteUserAction(Request $request){
 
