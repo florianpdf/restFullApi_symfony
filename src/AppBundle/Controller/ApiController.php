@@ -216,7 +216,7 @@ class ApiController extends Controller
     public function updateUserAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->findOneById($request->get('id'));
-        
+
         if (empty($user)){
             return new JsonResponse(array(
                 'message' => 'User not found',
@@ -253,6 +253,7 @@ class ApiController extends Controller
      * @Method("DELETE")
      */
     public function deleteUserAction(Request $request){
+
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->findOneById($request->get('id'));
 
